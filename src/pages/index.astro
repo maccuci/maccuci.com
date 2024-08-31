@@ -1,0 +1,58 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { GITHUB_LINK, SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div>
+				<h1 style="font-style: italic;">Hello There</h1>
+				<i>Maccuci is a solo Full Stack Developer, A.K.A a Software Engineer in the modern world.</i>
+			</div>
+			<div>
+				<p>
+					This website is entirely built with Astro.js. You can see more details in the <a href=`${GITHUB_LINK}/maccuci.com` target="_blank" rel="noopener noreferrer">GitHub Repository</a>.
+					<br/>
+					On this website, you can view Maccuci's latest posts and learn more about him.
+				</p>					
+			</div>
+
+			<div>
+				<h1 style="margin-top: 6rem;">More About Me</h1>
+			
+				<p>
+					<i>
+						I am a dedicated programmer whose passion for technology ignited in 2015. Since then, I've honed my expertise in Java, TypeScript, Python, and web development, continuously expanding my skills and knowledge. My journey is marked not only by technical growth but also by a commitment to mentoring newcomers in the field.
+					</i>
+				</p>
+				
+				<p>
+					<i>
+						My programming journey began in <b>2015</b> with Minecraft plugins. I started by developing essential plugins like "Core", "Commons", "PvP", "HG", and "Lobby" for my own small servers. This experience soon led me to develop plugins for other small to medium-sized servers, broadening my skills and client base.
+					</i>
+				</p>
+				
+				<p>
+					<i>
+						As the years progressed, I expanded my horizons beyond Minecraft development. I chose Backend as my main focus for several years, using Java and MySQL for databases, as well as PostgreSQL, Kotlin (which I didn't like much), and others.
+					</i>
+					<br/>
+					<i>But after a few years (around 2019), I started exploring new languages like Ruby and Go, and also delved a bit into Frontend (though that topic isn't covered on this site). Since then, I haven't stopped with Programming, Databases, System Design, Web Design, and other related fields.</i>
+				</p>
+
+				<p>
+					<i>Currently (2020 to present), I've been a programmer for various projects, freelance work, and careers. I've led small to medium-sized projects, launched several SaaS products on the internet (some of which are no longer online), and personally, I don't like to measure my knowledge in terms of seniority levels like "Junior, Mid-level, Senior," because, after all, experience is not a guarantee of anything.</i>
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
