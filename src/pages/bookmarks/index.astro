@@ -1,0 +1,59 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { GITHUB_LINK, SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { items } from './items'
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1 style="font-style: italic;">Bookmarks</h1>
+			<div>
+				<p>
+					Some themes I liked to read and know about or just for saving.
+				</p>					
+			</div>
+
+			<section>
+				<ul>
+					{
+						items.length >= 1 ? (items.map((item) => (
+							<li>
+								<a href={item.href} target="_blank">{item.name}</a> <span class="a">{item.description}</span>
+							</li>
+						))) :
+						(
+							<p>Nothing to see, yet...</p>
+						)
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+	<style>
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		ul li {
+			margin-bottom: 1rem;
+			padding-bottom: 1rem;
+			border-bottom: 1px solid #eee;
+		}
+
+		.a {
+			font-size: small;
+			font-style: italic;
+			color: #333;
+		}
+	</style>
+</html>

@@ -25,7 +25,7 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueO
 							<li>
 								<details>
 									<summary>
-										<span class="title">/{post.slug}</span>
+										<span class="title">{post.data.title}</span>
 										<span class="date">
 											<FormattedDate date={post.data.pubDate} />
 										</span>
@@ -50,12 +50,6 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueO
 	</body>
 
 	<style>
-		main {
-			width: 960px;
-			max-width: 100%;
-			margin: 0 auto;
-			padding: 0 1rem;
-		}
 		section {
 			margin-top: 4rem;
 		}
