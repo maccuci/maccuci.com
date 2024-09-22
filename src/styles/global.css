@@ -16,6 +16,10 @@
 		0 16px 32px rgba(var(--gray), 33%);
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	/* font-family: 'Courier New', Courier, monospace; */
 	margin: 0;
