@@ -2,39 +2,38 @@
 import BaseHead from "../../components/BaseHead.astro";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
-import { GITHUB_LINK, SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 import { items } from "./items";
 ---
 
 <!doctype html>
-<html lang='en'>
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1 style="font-style: italic;">Garden</h1>
-			<div>
-				<p>
-					A place for list my open-projects & open-source contributions.
-				</p>					
-			</div>
-			<section>
-				<ul>
-					{
-						items.length >= 1 ? (items.map((item) => (
-							<li>
-								<a href={item.href}>{item.name}</a>
-							</li>
-						))) :
-						(
-							<p>Nothing to see, yet...</p>
-						)
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1 style="font-style: italic;">Garden</h1>
+      <div>
+        <p>A place for everything I like, random ideas.</p>
+      </div>
+      <section>
+        <ul>
+          {
+            items.length >= 1 ? (
+              items.map((item) => (
+                <li>
+                  <a href={item.href}>{item.name}</a>
+                </li>
+              ))
+            ) : (
+              <p>Nothing to see, yet...</p>
+            )
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>

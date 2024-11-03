@@ -6,111 +6,113 @@ import FormattedDate from "../../components/FormattedDate.astro";
 import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
-const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1 style="font-style: italic;">Blog</h1>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<details>
-									<summary>
-										<span class="title">{post.data.title}</span>
-										<span class="date">
-											<FormattedDate date={post.data.pubDate} />
-										</span>
-									</summary>
-									<div class="post-details">
-										<p>{post.data.description || 'No description available.'}</p>
-										{post.data.tags && (
-											<p class="tags">
-												Tags: {post.data.tags.join(', ')}
-											</p>
-										)}
-										<a href={`/blog/${post.slug}`} class="read-more">Read full post</a>
-									</div>
-								</details>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-
-	<style>
-		section {
-			margin-top: 4rem;
-		}
-		ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-		}
-		ul li {
-			margin-bottom: 1rem;
-			padding-bottom: 1rem;
-			border-bottom: 1px solid #eee;
-		}
-		details {
-			cursor: pointer;
-		}
-		summary {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 0.5rem 0;
-		}
-		summary::-webkit-details-marker {
-			display: none;
-		}
-		.title {
-			font-size: 1.2rem;
-			font-weight: bold;
-		}
-		.date {
-			color: rgb(var(--gray));
-			font-size: 0.9rem;
-		}
-		.post-details {
-			margin-top: 1rem;
-			padding-left: 1rem;
-		}
-		.tags {
-			font-size: 0.9rem;
-			color: #666;
-		}
-		.read-more {
-			display: inline-block;
-			margin-top: 0.5rem;
-			color: blue;
-			text-decoration: none;
-		}
-		.read-more:hover {
-			text-decoration: underline;
-		}
-		@media (max-width: 720px) {
-			main {
-				width: 100%;
-			}
-			summary {
-				flex-direction: column;
-				align-items: flex-start;
-			}
-			.date {
-				margin-top: 0.25rem;
-			}
-		}
-	</style>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1 style="font-style: italic;">Blog</h1>
+      <section>
+        <ul>
+          {
+            posts.map((post) => (
+              <li>
+                <details>
+                  <summary>
+                    <span class="title">{post.data.title}</span>
+                    <span class="date">
+                      <FormattedDate date={post.data.pubDate} />
+                    </span>
+                  </summary>
+                  <div class="post-details">
+                    <p>
+                      {post.data.description || "No description available."}
+                    </p>
+                    {post.data.tags && (
+                      <p class="tags">Tags: {post.data.tags.join(", ")}</p>
+                    )}
+                    <a href={`/blog/${post.slug}`} class="read-more">
+                      Read full post
+                    </a>
+                  </div>
+                </details>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body><style>
+    section {
+      margin-top: 4rem;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    details {
+      cursor: pointer;
+    }
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    .title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .date {
+      color: rgb(var(--gray));
+      font-size: 0.9rem;
+    }
+    .post-details {
+      margin-top: 1rem;
+      padding-left: 1rem;
+    }
+    .tags {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .read-more {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: blue;
+      text-decoration: none;
+    }
+    .read-more:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 720px) {
+      main {
+        width: 100%;
+      }
+      summary {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .date {
+        margin-top: 0.25rem;
+      }
+    }
+  </style>
 </html>
